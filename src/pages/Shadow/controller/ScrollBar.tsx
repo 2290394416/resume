@@ -15,12 +15,11 @@ export default function ScrollBar(props: BarProps) {
   const [elementx, setElementx] = useState(defaultx)
   const startx = useRef(defaultx)
   const [num, setNum] = useState(defaultnum)
-  const ele = useRef(null)
+  const ele = useRef<HTMLDivElement>(null)
 
 
   function start(e: any) {
     startx.current = e.clientX
-
     document.addEventListener('mousemove', move, false)
     document.addEventListener('mouseup', end, false)
   }
@@ -52,6 +51,14 @@ export default function ScrollBar(props: BarProps) {
     document.removeEventListener('mousemove', move)
     document.removeEventListener('mouseup', end)
   }
+  function click(e: any) {
+    const eleLeft = ele.current?.getBoundingClientRect().left
+    let __x = e.clientX - eleLeft
+    let number = Math.round(__x / step * 100) / 100
+    setElementx(__x)
+    setNum(number)
+    set(number)
+  }
   useEffect(() => {
     let maxvertex = 300 / step
     if(elementx === 0) {
@@ -69,14 +76,13 @@ export default function ScrollBar(props: BarProps) {
         <div className={s.num}>{num}</div>
       </div>
       <div className={s.slider}>
-        <div className={s.line_box}>
-          <div className={s.line}></div>
+        <div className={s.line_box} onClick={(e) => click(e)}>
+          <div className={s.line} ref={ele}></div>
         </div>
         <div
           className={s.circle_box}
           onMouseDown={start}
           style={{left: elementx}}
-          ref={ele}
         >
           <div className={s.circle}></div>
         </div>
