@@ -104,6 +104,5 @@ export default function Board() {
         <Outlet />
       </div>
     </div>
-
   )
 }

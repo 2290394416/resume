@@ -20,7 +20,7 @@ export default function Layout() {
       path: '/login',
       text: '活动'
     }, {
-      path: '/123',
+      path: '/shadow',
       text: '竞赛'
     }, {
       path: '/shop',
