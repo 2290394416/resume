@@ -11,6 +11,7 @@ import NotFound from '../pages/NotFound'
 import Contact from '../pages/Contact'
 import Shadow from '../pages/Shadow/index'
 import Shop from '../pages/Shop/index'
+import Users from '../pages/Users/Index'
 //配置路由文件
 const router = createBrowserRouter([
   {
@@ -37,6 +38,9 @@ const router = createBrowserRouter([
       }, {
         path: 'shop',
         element: <Shop />
+      }, {
+        path: 'user',
+        element: <Users />
       }, {
         path: 'about',
         element: <About />,

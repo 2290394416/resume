@@ -1,6 +1,6 @@
 .wrapper {
   width: 100%;
-  background-color: black;
+  background-color: #282828;
   display: flex;
   justify-content: space-between;
   align-items: start;
@@ -26,7 +26,6 @@
 
 .container {
   flex: 1;
-  overflow: scroll;
   height: 100%;
 }
 .controller {
@@ -91,10 +90,11 @@
   background-color: #fff;
 }
 .light {
+  color: #fff;
   grid-area: light;
-  background-color: aqua;
   border-radius: 4px;
   position: relative;
+  border: 1px solid rgb(92, 102, 112);
   
   & .circle {
     position: absolute;
@@ -107,18 +107,32 @@
 .row_line {
   width: 100%;
   height: 2px;
-  background-color: red;
+  border-top: 2px dashed rgb(92, 102, 112);
   position: absolute;
-  top: 50%;
+  top: calc(50% + 1px);
   transform: translateY(-50%);
 }
 .column_line {
   width: 2px;
   height: 100%;
-  background-color: red;
+  border-left: 2px dashed rgb(92, 102, 112);
   position: absolute;
-  left: 50%;
+  left: calc(50% + 1px);
   transform: translateX(-50%);
+}
+.position {
+  width: 100%;
+  position: absolute;
+  top: -25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.coordinate {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .shadow {
@@ -131,7 +145,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    // margin-bottom: 16px;
   }
 }
 .shadowBtn {

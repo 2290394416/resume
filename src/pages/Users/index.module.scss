@@ -1,0 +1,33 @@
+
+.create {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.post {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.radioBtn {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+.radio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid black;
+  box-sizing: border-box;
+  transition: all 0.3s;
+
+  &.active {
+    border: 5px solid #3778f7;
+  }
+}
+.text {
+  margin-left: 10px;
+}

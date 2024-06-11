@@ -25,6 +25,9 @@ export default function Layout() {
     }, {
       path: '/shop',
       text: '商城'
+    }, {
+      path: '/user',
+      text: '用户管理'
     }
   ]
 

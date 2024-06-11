@@ -21,7 +21,7 @@ export default function ScrollBar() {
     document.addEventListener('mousemove',move,false)
     document.addEventListener('mouseup',end,false)
   }
-  function move(e) {
+  function move(e: any) {
     let disX = e.clientX - moveX.current
     let disY = e.clientY - moveY.current
     let nowX = elementX + disX
@@ -32,40 +32,48 @@ export default function ScrollBar() {
     let posY = nowY - 160
     setX(posX)
     setY(posY)
+    seth(posX)
+    setv(posY)
     if (nowX < 0) {
       setElementX(0)
       setX(-150)
+      seth(-150)
     }
     if (nowX > lightref.current.clientWidth) {
       setElementX(lightref.current.clientWidth)
       setX(150)
+      seth(150)
     }
     if (nowY < 0) {
       setElementY(0)
       setY(-160)
+      setv(-160)
     }
     if (nowY > lightref.current.clientHeight) {
       setElementY(lightref.current.clientHeight)
       setY(160)
+      setv(160)
     }
-    seth(posX)
-    setv(posY)
   }
   function end() {
     document.removeEventListener('mousemove',move)
     document.removeEventListener('mouseup',end)
   }
-  function click(e) {
+  function click(e: any) {
     const lightLeft = lightref.current.getBoundingClientRect().left
     const lightTop = lightref.current.getBoundingClientRect().top
     let __x = e.clientX - lightLeft
     let __y = e.clientY - lightTop
-    setElementX(__x)
-    setElementY(__y)
-    setX(__x - 150)
-    setY(__y - 160)
-    seth(__x - 150)
-    setv(__y - 160)
+    if( __y < 0) {
+      return
+    } else {
+      setElementX(__x)
+      setElementY(__y)
+      setX(__x - 150)
+      setY(__y - 160)
+      seth(__x - 150)
+      setv(__y - 160)
+    }
   }
 
   return (
@@ -77,8 +85,13 @@ export default function ScrollBar() {
         onMouseDown={start}
         style={{ top: `${elementY}px`,left: `${elementX}px`}}
       ></div>
-      <div>x:{x}</div>
-      <div>y:{y}</div>
+      <div className={s.position}>
+        <div className={s.text}>position:</div>
+        <div className={s.coordinate}>
+          <div>x:{x}</div>
+          <div>y:{y}</div>
+        </div>
+      </div>
     </div>
   )
 }
