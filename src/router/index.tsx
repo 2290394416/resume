@@ -12,6 +12,7 @@ import Contact from '../pages/Contact'
 import Shadow from '../pages/Shadow/index'
 import Shop from '../pages/Shop/index'
 import Users from '../pages/Users/Index'
+import LoadingList from '../pages/LoadingList/index'
 //配置路由文件
 const router = createBrowserRouter([
   {
@@ -41,6 +42,9 @@ const router = createBrowserRouter([
       }, {
         path: 'user',
         element: <Users />
+      }, {
+        path: 'loadingList',
+        element: <LoadingList />
       }, {
         path: 'about',
         element: <About />,

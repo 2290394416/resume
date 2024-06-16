@@ -76,7 +76,7 @@ export default function Users() {
         <ModalForm show={show} type='add' onOk={() => { setShow(false); setEditing({})}} onCancel={() => setShow(false)} editing={editing} onChange={onChange}/>
       </div>
 
-      <Table dataSource={users}>
+      <Table dataSource={users} >
         <Column<User> key="name" title="姓名" dataIndex="name" />
         <Column<User> key="age" title="年龄" dataIndex="age" />
         <Column<User> key="address" title="地址" dataIndex="address" />

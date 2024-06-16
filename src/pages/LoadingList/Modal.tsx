@@ -1,19 +1,16 @@
-import { Modal, Form, Input, Select, SelectProps, message, Popconfirm, Button } from 'antd'
-import { Department, TagColor, PostName } from './Index'
-import {User} from './interface'
+import { Modal, Form, Input, message, Popconfirm, Button, Avatar } from 'antd'
 import { useEffect, useState } from 'react';
-import {postApi} from './api'
-import Radio from './Radio'
+import { ListLoading } from './interface';
+
 
 
 interface ModalFormProps {
   show: boolean,
   onOk: () => any,
   onCancel: () => any
-  editing: {},
+  editing: any,
   index?: number,
   onChange?: any
-  type?: string
 }
 
 export default function ModalForm(props: ModalFormProps) {
@@ -30,13 +27,7 @@ export default function ModalForm(props: ModalFormProps) {
     let obj = { ...form.getFieldsValue(), key: new Date(), show: false }
     onChange && onChange(obj, index)
   }
-  const options: SelectProps['options'] = [];
-  Object.keys(TagColor).forEach((item) => (
-    options.push({
-      value: item,
-      label: item,
-    })
-  ))
+  
   useEffect(() => {
     if (!values || !values.name) {
       return
@@ -51,19 +42,10 @@ export default function ModalForm(props: ModalFormProps) {
   }, [form, values]);
   
 
-  // useEffect(() => {
-  //   if (type != 'add' && show === true) {
-  //     form.setFieldsValue(editing)
-  //     form.resetFields()
-  //     console.log('打开的是编辑')
-  //     return
-  //   }
-  // },[show])
-
   return (
     <Modal
       open={show}
-      title="新增用户"
+      title="编辑"
       onCancel={() => {
         onCancel()
         setCaching(true)
@@ -92,15 +74,13 @@ export default function ModalForm(props: ModalFormProps) {
             description='确认要提交当前内容吗？'
             onConfirm={() => {
               setLoading(true)
-              postApi().then((res: any) => {
-                if (res.success) {
-                  message.success('提交成功')
-                  setLoading(false)
-                  onOk()
-                  submit()
-                  form.resetFields()
-                }
-              })
+              setTimeout(() => {
+                message.success('提交成功')
+                setLoading(false)
+                submit()
+                form.resetFields()
+                onOk()
+              },1000)    
             }}
             okText='确定'
             cancelText='取消'
@@ -116,32 +96,17 @@ export default function ModalForm(props: ModalFormProps) {
         preserve={caching}
         disabled={loading}
       >
-        <Form.Item<User> label='姓名' name='name' rules={[{required: true, message: '请输入用户名'}]}>
+        <Form.Item<ListLoading> label='头像' name='avatar' rules={[{ required: true, message: '请输入用户名' }]}>
+          <Avatar size={'large'} src={editing.avatar}/>
+        </Form.Item>
+        <Form.Item<ListLoading> label='姓名' name='name' rules={[{required: true, message: '请输入用户名'}]}>
           <Input placeholder='请输入用户名' />
         </Form.Item>
-        <Form.Item<User> label='年龄' name='age' rules={[{ required: true, message: '请输入年龄' }]}>
+        <Form.Item<ListLoading> label='描述' name='desc' rules={[{ required: true, message: '请输入描述' }]}>
           <Input />
         </Form.Item>
-        <Form.Item<User> label='地址' name='address' rules={[{ required: true, message: '请输入地址' }]}>
+        <Form.Item<ListLoading> label='内容' name='content' rules={[{ required: true, message: '请输入内容' }]}>
           <Input />
-        </Form.Item>
-        <Form.Item<User> label='等级' name='tags' rules={[{ required: true, message: '请选择等级' }]}>
-          <Select
-            mode="tags"
-            placeholder="Please select"
-            style={{ width: '100%' }}
-            options={options}
-          />
-        </Form.Item>
-        <Form.Item label='岗位' name='post' >
-          <Radio selects={Object.keys(PostName)} disabled={loading} />
-        </Form.Item>
-        <Form.Item<User> label='部门' name='department' rules={[{ required: true, message: '请选择部门' }]}>
-          <Select>
-            {Object.keys(Department).map((item) => (
-              <Select.Option key={item} value={item}>{Department[item]}</Select.Option>
-            ))}
-          </Select>
         </Form.Item>
       </Form>
     </Modal>
