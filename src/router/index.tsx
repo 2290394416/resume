@@ -20,7 +20,6 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        //默认显示二级路由的这个内容
         path: 'shadow',
         element: <Home />
       }, {
@@ -35,6 +34,7 @@ const router = createBrowserRouter([
         element: <Login />
       }, {
         // path: 'shadow',
+        //默认显示二级路由的这个内容
         index: true,
         element: <Shadow />
       }, {
