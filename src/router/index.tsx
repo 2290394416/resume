@@ -16,7 +16,7 @@ import LoadingList from '../pages/LoadingList/index'
 //配置路由文件
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/resume/',
     element: <Layout />,
     children: [
       {
