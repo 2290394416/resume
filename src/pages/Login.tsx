@@ -6,7 +6,7 @@ export default function Login() {
     //第二个参数是是否替换掉上路由
     // navigate('/about', { replace: true })
     //路由传参，searchParams
-    navigate('/about?id=10086')
+    navigate('/resume/about?id=10086')
   }
   return (
     <div>

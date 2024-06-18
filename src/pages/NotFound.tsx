@@ -5,7 +5,7 @@ export default function NotFound() {
     <div id="error-page">
       <h1>您的页面不存在</h1>
       <p>
-        <Link to={'/'}>返回首页</Link>
+        <Link to={'/resume/'}>返回首页</Link>
       </p>
     </div>
   )

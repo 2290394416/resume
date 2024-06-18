@@ -43,7 +43,7 @@ export default function Layout() {
         <div className="nav">
           <div className="nav-list">
             {nav.map((item) => (
-              <MyLink key={item.path} to={`/resume ${item.path}`} className={'nav-btn'}>{item.text}</MyLink>
+              <MyLink key={item.path} to={`/resume${item.path}`} className={'nav-btn'}>{item.text}</MyLink>
             ))}
           </div>
           <div className='right-nav'></div>

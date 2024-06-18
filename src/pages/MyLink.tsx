@@ -7,7 +7,7 @@ function MyLink({children, className, to, onClick, ...props}: any) {
     end: false
   })
 
-  if (active && to === '/' && location.pathname !== '/') {
+  if (active && to === '/resume/' && location.pathname !== '/resume/') {
     active = null
   }
 

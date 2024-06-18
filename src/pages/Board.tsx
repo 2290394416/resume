@@ -2,7 +2,7 @@ import {Outlet, useNavigate} from 'react-router-dom'
 import MyLink from './MyLink'
 import { useEffect, useRef } from 'react'
 
-let prepath = '/board/button'
+let prepath = '/resume/board/button'
 
 export default function Board() {
   var navigate = useNavigate()
@@ -77,7 +77,7 @@ export default function Board() {
     }
   ]
   useEffect(() => {
-    if (location.pathname === '/board') {
+    if (location.pathname === '/resume/board') {
       navigate(prepath)
     }
     return () => {
@@ -95,7 +95,7 @@ export default function Board() {
             to={item.path} 
             className={'side-btn'}
             onClick={() => {
-              path.current = `/board/${item.path}`
+              path.current = `/resume/board/${item.path}`
             }}
           >{item.text}</MyLink>
         ))}
