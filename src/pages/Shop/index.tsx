@@ -140,7 +140,8 @@ export default function Shop() {
             onSearch={searchKey}
             onChange={(e) => {
               keyword.current = e.target.value;
-              search.current()
+              once()
+              // search.current()
             }}
             enterButton
             style={{width: 300 }}
