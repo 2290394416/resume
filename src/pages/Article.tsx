@@ -20,19 +20,13 @@ interface DataType {
 }
 
 const count = 3;
-
 const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
+
 export default function Article() {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState<DataType[]>([])
-  const [initLoading, setInitLoading] = useState(true)
+  const [initLoading, setInitLoading] = useState(true)//初始加载
   const [list, setList] = useState<DataType[]>([])
-
-
-  // axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
-  //   setData(res.data)
-  //   console.log(data)
-  // }
 
   useEffect(() => {
     fetch(fakeDataUrl)
@@ -48,7 +42,6 @@ export default function Article() {
     setLoading(true);
     const loadArr = [...new Array(count)].map(() => ({ loading: true, name: {}, picture: {} }))
     setList(data.concat(loadArr));
-
     fetch(fakeDataUrl)
       .then((res) => res.json())
       .then((res) => {
@@ -56,10 +49,7 @@ export default function Article() {
         setData(newData);
         setList(newData);
         setLoading(false);
-        // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
-        // In real scene, you can using public method of react-virtualized:
-        // https://stackoverflow.com/questions/46700726/how-to-use-public-method-updateposition-of-react-virtualized
-        window.dispatchEvent(new Event('resize'));
+        // window.dispatchEvent(new Event('resize'));
       });
   };
 
@@ -84,7 +74,7 @@ export default function Article() {
         <List
           className="demo-loadmore-list"
           loading={initLoading}
-          itemLayout="horizontal"
+          // itemLayout="horizontal"
           loadMore={loadMore}
           dataSource={list}
           renderItem={(item) => (

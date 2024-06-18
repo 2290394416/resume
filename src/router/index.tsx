@@ -20,13 +20,13 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
+        //默认显示二级路由的这个内容
         index: true,
         element: <Home />
       }, {
         path: 'article',
         element: <Article />,
       }, {
-        //默认显示二级路由的这个内容
         path: 'Board',
         element: <Board />,
         children: board,

@@ -13,8 +13,10 @@ function MyLink({children, className, to, onClick, ...props}: any) {
 
   function __handler(e: any) {
     if (active) {
+      //如果是选中状态，取消默认行为，link 是 a 链接，就不会跳转了
       e.preventDefault()
     }
+    // 当点击的不是选中的按钮，就会执行a链接跳转
     onClick && onClick()
   }
 

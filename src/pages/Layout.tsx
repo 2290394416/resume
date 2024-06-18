@@ -2,7 +2,7 @@ import { Outlet} from 'react-router-dom';
 import MyLink from './MyLink';
 
 export default function Layout() {
-
+ 
   const nav = [
     {
       path: '/',
@@ -28,6 +28,9 @@ export default function Layout() {
     }, {
       path: '/user',
       text: '用户管理'
+    }, {
+      path: '/loadingList',
+      text: '加载列表'
     }
   ]
 

@@ -1,7 +1,6 @@
 import {useStore} from './store'
 
 export default function Counter() {
-  console.log("render Counter", new Date().toString());
 
   const {count, counter2} = useStore((state: any) => ({
     count: state.count,
