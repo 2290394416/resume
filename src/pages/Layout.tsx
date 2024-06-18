@@ -5,31 +5,31 @@ export default function Layout() {
  
   const nav = [
     {
-      path: '/',
+      path: '',
       text: '首页',
     }, {
-      path: '/article',
+      path: 'article',
       text: '沸点'
     }, {
-      path: '/about',
+      path: 'about',
       text: '课程'
     }, {
-      path: '/board',
+      path: 'board',
       text: '直播'
     }, {
-      path: '/login',
+      path: 'login',
       text: '活动'
     }, {
-      path: '/shadow',
+      path: 'shadow',
       text: '竞赛'
     }, {
-      path: '/shop',
+      path: 'shop',
       text: '商城'
     }, {
-      path: '/user',
+      path: 'user',
       text: '用户管理'
     }, {
-      path: '/loadingList',
+      path: 'loadingList',
       text: '加载列表'
     }
   ]
@@ -43,7 +43,7 @@ export default function Layout() {
         <div className="nav">
           <div className="nav-list">
             {nav.map((item) => (
-              <MyLink key={item.path} to={`/resume${item.path}`} className={'nav-btn'}>{item.text}</MyLink>
+              <MyLink key={item.path} to={`/resume/${item.path}`} className={'nav-btn'}>{item.text}</MyLink>
             ))}
           </div>
           <div className='right-nav'></div>
