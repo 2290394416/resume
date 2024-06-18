@@ -1,5 +1,6 @@
 import { Outlet} from 'react-router-dom';
 import MyLink from './MyLink';
+import { SmileTwoTone } from '@ant-design/icons';
 
 export default function Layout() {
  
@@ -38,7 +39,8 @@ export default function Layout() {
     <div className='container'>
       <div className="header">
         <div className="logo">
-          logo
+          <SmileTwoTone style={{ fontSize: '30px'}}/>
+          <span>Logo</span>
         </div>
         <div className="nav">
           <div className="nav-list">
