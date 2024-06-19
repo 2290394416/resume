@@ -1,0 +1,65 @@
+
+.fm {
+  height: 1000px;
+}
+.fm .motian {
+  border: 1px solid red;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  
+  animation-name: spin;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  position: relative;
+}
+
+.fm .itemx {
+  text-align: center;
+  width: 40px;
+  height: 20px;
+  border: 1px solid orange;
+  background-color: blue;
+  color: #FFF;
+  position: absolute;
+  animation-name: spin;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
+
+.fm .itemx1 {
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fm .itemx2 {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fm .itemx3 {
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+}
+
+.fm .itemx4 {
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

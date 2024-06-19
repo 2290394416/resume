@@ -1,13 +1,15 @@
-import {useSearchParams, Link, Outlet} from 'react-router-dom'
+import './about.css'
+
 export default function About() {
-const [params] = useSearchParams()
-const id = params.get('id')
+
   return (
-    <div>
-      <p>this is about {id}</p>
-      <Link to={'contact'}>用户信息</Link>
-      <div>这是三级路由的出口</div>
-      <Outlet />
+    <div className='fm'>
+      <div className='motian'>
+        <div className="itemx itemx1">B</div>
+        <div className="itemx itemx2">T</div>
+        <div className="itemx itemx3">L</div>
+        <div className="itemx itemx4">R</div>
+      </div>
     </div>
   )
 }
