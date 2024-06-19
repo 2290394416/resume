@@ -6,6 +6,8 @@ import Color from './controller/Color'
 import Code from './controller/Code'
 import {useStore} from './store'
 
+import About from '../About'
+
 export default function Index() {
   const setblur = useStore((state: any) => state.setblur);
   const setspread = useStore((state: any) => state.setspread);
@@ -13,6 +15,7 @@ export default function Index() {
 
   return(
     <div className={s.wrapper}>
+      <About />
       <Playground />
       <div className={s.container}>
         <div className={s.controller}>
