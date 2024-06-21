@@ -137,7 +137,11 @@ export default function Shop() {
         <div>查询列表</div>
           <Search
             placeholder=' 清输入要查询的内容..'
-            onSearch={searchKey}
+            onSearch={() => {
+              if(keyword.current !== '' ) {
+                searchKey()
+              }
+            }}
             onChange={(e) => {
               keyword.current = e.target.value;
               once()

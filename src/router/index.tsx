@@ -8,7 +8,6 @@ import About from '../pages/About'
 import Board from '../pages/Board'
 import Article from '../pages/Article'
 import NotFound from '../pages/NotFound'
-import Contact from '../pages/Contact'
 import Shadow from '../pages/Shadow/index'
 import Shop from '../pages/Shop/index'
 import Users from '../pages/Users/Index'
@@ -16,13 +15,14 @@ import LoadingList from '../pages/LoadingList/index'
 //配置路由文件
 const router = createBrowserRouter([
   {
+    path: '/',
+    element: <Home />
+  },
+  {
     path: '/resume/',
     element: <Layout />,
     children: [
       {
-        path: 'shadow',
-        element: <Home />
-      }, {
         path: 'article',
         element: <Article />,
       }, {
@@ -49,13 +49,6 @@ const router = createBrowserRouter([
       }, {
         path: 'about',
         element: <About />,
-        children: [
-          {
-            path: "contact",
-            index: true,
-            element: <Contact />
-          }
-        ]
       }
     ]
   }, {

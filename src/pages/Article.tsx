@@ -69,7 +69,7 @@ export default function Article() {
 
   return (
    <div>
-      <div>this is article</div>
+      <div>点击下面的 loading按键加载更多</div>
       <div style={{ backgroundColor: '#FFF' }}>
         <List
           className="demo-loadmore-list"

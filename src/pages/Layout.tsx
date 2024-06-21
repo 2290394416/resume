@@ -1,8 +1,13 @@
-import { Outlet} from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import MyLink from './MyLink';
 import { SmileTwoTone } from '@ant-design/icons';
 
 export default function Layout() {
+  const navigate = useNavigate()
+
+  const gohome = () => {
+    navigate('/')
+  }
  
   const nav = [
     {
@@ -18,12 +23,6 @@ export default function Layout() {
       path: 'board',
       text: '直播'
     }, {
-      path: 'login',
-      text: '活动'
-    }, {
-      path: 'shadow',
-      text: '竞赛'
-    }, {
       path: 'shop',
       text: '商城'
     }, {
@@ -32,13 +31,16 @@ export default function Layout() {
     }, {
       path: 'loadingList',
       text: '加载列表'
+    }, {
+      path: 'shadow',
+      text: '竞赛'
     }
   ]
 
   return(
     <div className='container'>
       <div className="header">
-        <div className="logo">
+        <div className="logo" onClick={gohome}>
           <SmileTwoTone style={{ fontSize: '30px'}}/>
           <span>Logo</span>
         </div>
